@@ -5,7 +5,6 @@ from typing import Optional, List
 import pandas as pd
 import os
 
-
 app = FastAPI(
     title="Exam API",
     description="This API powered by FastAPI.",
