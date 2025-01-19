@@ -5,7 +5,6 @@ from typing import Optional, List
 import pandas as pd
 import os
 
-# import logging
 
 
 app = FastAPI(
