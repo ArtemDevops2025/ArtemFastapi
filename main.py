@@ -21,9 +21,8 @@ app = FastAPI(
         'name': 'Admin Tasks',
         'description': 'Only for admin'
     },
-    {
-            'name': 'Users Task',
-            'description': 'User get random quiz'
+    {   'name': 'Users Task',
+        'description': 'User get random quiz'
     }
 ]
 )
@@ -62,8 +61,8 @@ def authenticate_user(credentials: HTTPBasicCredentials = Depends(security)) -> 
 def is_admin(username: str = Depends(authenticate_user)) -> str:
     if username != "admin":
         raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="You do not have permission to perform this action."
+        status_code=status.HTTP_403_FORBIDDEN,
+        detail="You do not have permission to perform this action."
         )
     return username
 
@@ -127,14 +126,14 @@ def create_question(question: Question, username: str = Depends(is_admin)):
 #------------------------------ Users endpoint--------------------------------------------
 @app.get("/generate-mcq/", response_model=List[Question], name='Generate a new QUIZ',tags=['ALL users task'])
 def generate_mcq(
-     # subjects: List[str] = Query(...),
-     # use: str = Query(...),
-     # num_questions: int = Query(...),
-     # username: str = Depends(authenticate_user),
-     subjects: List[str] = Query(..., title="Subjects", description="Enter the subjects"),
-     use: str = Query(..., title="Use Type", description="Enter the type of test(use)"),
-     num_questions: int = Query(..., title="Number of Questions",
-     description="Enter the number of questions"),
+# subjects: List[str] = Query(...),
+# use: str = Query(...),
+# num_questions: int = Query(...),
+# username: str = Depends(authenticate_user),
+subjects: List[str] = Query(..., title="Subjects", description="Enter the subjects"),
+use: str = Query(..., title="Use Type", description="Enter the type of test(use)"),
+num_questions: int = Query(..., title="Number of Questions",
+description="Enter the number of questions"),
 ):
     """For test--- subject : BDD, Data Science.--- use: Test de positionnement, Total Bootcamp---questions. 5, 10, 20 """
 
@@ -146,7 +145,7 @@ def generate_mcq(
         raise HTTPException(status_code=404, detail="No questions found.")
     if len(filtered) < num_questions:
         raise HTTPException(status_code=400, detail="Not enough questions available.")
- #   filtered = df[df["subject"] == subjects].fillna("").to_dict(orient="records")
+#   filtered = df[df["subject"] == subjects].fillna("").to_dict(orient="records")
 
     sampled = filtered.sample(n=num_questions).fillna("").to_dict(orient="records")
     return sampled
