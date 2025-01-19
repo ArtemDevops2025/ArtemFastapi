@@ -28,6 +28,7 @@ app = FastAPI(
 ]
 )
 #--------------Load the CSV file
+
 CSV_FILE = 'questions.csv'
 if not os.path.exists(CSV_FILE):
     raise Exception(f"CSV file '{CSV_FILE}' not found.")
