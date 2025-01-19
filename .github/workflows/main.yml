@@ -28,8 +28,8 @@ jobs:
       - name: Run linting with Black
         run: black --check .
 
-      # - name: Run tests with pytest
-      #   run: pytest
+      #- name: Run tests with pytest
+      # run: pytest
 
   generate-docs:
     runs-on: ubuntu-22.04
@@ -50,13 +50,14 @@ jobs:
 
       - name: Generate OpenAPI documentation
         run: |
-         python -c "
-         from fastapi import FastAPI
-         import json
-         app = FastAPI()
-         openapi_schema = app.openapi()
-    with open('openapi.json', 'w') as f:
-        json.dump(openapi_schema, f)
+          python -c "
+          from fastapi import FastAPI
+          import json
+          app = FastAPI()
+          openapi_schema = app.openapi()
+          with open('openapi.json', 'w') as f:
+              json.dump(openapi_schema, f)
+          "
         env:
           PYTHONPATH: .
 
