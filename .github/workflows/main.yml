@@ -72,8 +72,8 @@ jobs:
           run: |
             zip openapi.zip openapi.json
   
-        - name: Upload OpenAPI documentation as artifact
-          uses: actions/upload-artifact@v3
-          with:
-            name: openapi-docs
-            path: openapi.zip
+      - name: Upload OpenAPI documentation as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: openapi-docs
+          path: openapi.zip
