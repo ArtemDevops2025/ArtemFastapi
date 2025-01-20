@@ -63,12 +63,18 @@ jobs:
         env:
           PYTHONPATH: .
 
-      - name: Zip OpenAPI documentation
-        run: |
-          zip openapi.zip openapi.json
-  
-      - name: Upload OpenAPI documentation as artifact
-        uses: actions/upload-artifact@v3
+      - name: Download openapi-docs artifact
+        uses: actions/download-artifact@v3
         with:
           name: openapi-docs
-          path: openapi.zip    
+          path: ./artifacts
+  
+      - name: Unzip openapi-docs artifact
+        run: |
+          unzip ./artifacts/openapi-docs.zip -d ./unzipped
+  
+      - name: Upload unzipped files as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: unzipped-openapi
+          path: ./unzipped        
