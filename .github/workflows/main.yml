@@ -54,9 +54,8 @@ jobs:
       - name: Generate OpenAPI documentation
         run: |
           python -c "
-          from fastapi import FastAPI
+          from main import app
           import json
-          app = FastAPI()
           openapi_schema = app.openapi()
           with open('openapi.json', 'w') as f:
               json.dump(openapi_schema, f)
