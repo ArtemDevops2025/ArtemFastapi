@@ -12,7 +12,7 @@ on:
 
 jobs:
   lint-and-test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -31,11 +31,11 @@ jobs:
       - name: Run linting with Black
         run: black --check .
 
-      #- name: Run tests with pytest
-      # run: pytest
+      - name: Run tests with pytest
+        run: pytest
 
   generate-docs:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     needs: lint-and-test
     steps:
       - name: Checkout repository
@@ -59,7 +59,7 @@ jobs:
           app = FastAPI()
           openapi_schema = app.openapi()
           with open('openapi.json', 'w') as f:
-          json.dump(openapi_schema, f)
+              json.dump(openapi_schema, f)
           "
         env:
           PYTHONPATH: .
@@ -69,4 +69,3 @@ jobs:
         with:
           name: openapi-docs
           path: openapi.json
-
