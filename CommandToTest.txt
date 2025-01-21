@@ -1,0 +1,7 @@
+service ssh status
+docker exec -it my_fastapi_container bash
+ps aux | grep uvicorn
+netstat -tuln | grep 80
+curl http://localhost:80
+curl http://localhost:80/verify
+curl http://localhost:9000/verify
