@@ -81,3 +81,12 @@ TEXT,API,EXAM,string,string,string,string,,
 string,string,string,string,string,string,string,string,string
 string,string,string,string,string,string,string,string,string
 string,string,string,string,string,string,string,string,string
+Test?,Test,Total Bootcamp,Test,Test,2,3,,
+Test?,Test,Total Bootcamp,Test,Test,2,3,,
+Test?,Test,Total Bootcamp,Test,Test,2,3,,
+Test,API,Total Bootcamp,Test,Python,Java,Ruby,,
+Test,API,Total Bootcamp,Test,Python,Java,Ruby,,
+string,string,string,string,string,string,string,string,string
+Test,API,Total Bootcamp,Test,Python,Java,Ruby,,
+Test,API,Total Bootcamp,Test,Python,Java,Ruby,,
+Test,API,Total Bootcamp,Test,Python,Java,Ruby,None,

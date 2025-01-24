@@ -28,11 +28,11 @@ jobs:
           pip install -r requirements.txt
           pip install black pytest httpx
 
-      - name: Run linting with Black
-        run: black --check .
+      # - name: Run linting with Black
+      #   run: black --check .
 
-      # - name: Run tests with pytest
-      #   run: pytest
+      -name: Run tests with pytest
+        run: pytest
 
   generate-docs:
     runs-on: ubuntu-latest

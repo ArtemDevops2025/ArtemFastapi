@@ -128,11 +128,11 @@ def get_questions_by_subject(subject: str, username: str = Depends(is_admin)):
 def create_question(question: Question, username: str = Depends(is_admin)):
     """For test--- subject : BDD, Data Science.--- use: Test de positionnement, Total Bootcamp---"""
 
-    new_question = question.model_dump()  # dict() is depricated, model_dump() insted
+    new_question = question.model_dump()  # Convert Pydantic model to dictionary
     global df
     df = pd.concat([df, pd.DataFrame([new_question])], ignore_index=True)
     df.to_csv(CSV_FILE, index=False)
-    return ({"message": "Question added successfully!", "question": new_question},)
+    return {"message": "Question added successfully!", "question": question}
 
 
 # ------------------------------ Users endpoint--------------------------------------------
