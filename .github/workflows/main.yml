@@ -32,7 +32,7 @@ jobs:
       #   run: black --check .
 
       -name: Run tests with pytest
-        run: pytest
+        run: pytest.
 
   generate-docs:
     runs-on: ubuntu-latest
@@ -63,18 +63,4 @@ jobs:
         env:
           PYTHONPATH: .
 
-      # - name: Download openapi-docs artifact
-      #   uses: actions/download-artifact@v3
-      #   with:
-      #     name: openapi-docs
-      #     path: ./artifacts
-  
-      # - name: Unzip openapi-docs artifact
-      #   run: |
-      #     unzip ./artifacts/openapi-docs.zip -d ./unzipped
-  
-      # - name: Upload unzipped files as artifact
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: unzipped-openapi
-      #     path: ./unzipped        
+            
